@@ -9,6 +9,9 @@ class SearchBar extends React.Component {
 
     changeText = (e) =>{
         e.preventDefault();
+        if(!e.target.value.match(/[a-zA-Z0-9]+/)){
+            return 'error'
+        }
         this.setState({currentInputValue: e.target.value});
         this.props.filterUsers(e.target.value);
     }
@@ -18,7 +21,10 @@ class SearchBar extends React.Component {
             <section className={style.searchBar}>
                 <div className="container">
                     <form action="" className={style.form}>
-                        <input style={{backgroundImage: `url(${bgSearch})`}} onInput={this.changeText} value={this.currentInputValue} type="text" className={style.inputSearch} placeholder="Filter by author" pattern="[а-яА-ЯёЁ]+" required title="Можно использовать только кириллицу"/>
+                        <input style={{backgroundImage: `url(${bgSearch})`}}
+                               onInput={this.changeText} value={this.currentInputValue}
+                               type="text" className={style.inputSearch} placeholder="Filter by author"
+                        />
                     </form>
                 </div>
             </section>
