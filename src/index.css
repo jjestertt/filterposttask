@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+html,
+body {
+  height: 100%;
+  background: #edf2f7;
+  font-family: 'Open Sans', sans-serif; }
+
+.container {
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 15px; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+h1, h2, h3, h4, ul, li, form, input {
+  margin: 0;
+  padding: 0; }
+
+ul, li {
+  list-style: none; }
+
+@media (max-width: 975px) {
+  .container{
+    max-width: 675px;
+  }
+}

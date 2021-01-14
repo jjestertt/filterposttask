@@ -1,0 +1,28 @@
+.postsItem {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    max-width: 300px;
+    padding: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px; }
+.postsItemTitle {
+    color: #4982e1;
+    margin-bottom: 10px; }
+.postsItemText {
+    margin-bottom: 10px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%; }
+.postsItemAuthor {
+    margin-bottom: 10px;
+    color: #a3a2a2;
+    font-size: 13px; }
