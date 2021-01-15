@@ -8,10 +8,6 @@ class SearchBar extends React.Component {
     };
 
     changeText = (e) =>{
-        e.preventDefault();
-        if(!e.target.value.match(/[a-zA-Z0-9]+/)){
-            return 'error'
-        }
         this.setState({currentInputValue: e.target.value});
         this.props.filterUsers(e.target.value);
     }
@@ -20,7 +16,7 @@ class SearchBar extends React.Component {
         return (
             <section className={style.searchBar}>
                 <div className="container">
-                    <form action="" className={style.form}>
+                    <form onSubmit={(e) => {e.preventDefault();}} action="" className={style.form}>
                         <input style={{backgroundImage: `url(${bgSearch})`}}
                                onInput={this.changeText} value={this.currentInputValue}
                                type="text" className={style.inputSearch} placeholder="Filter by author"
