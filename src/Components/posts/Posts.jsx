@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux";
-import style from "./Post.module.css"
+import style from "./Posts.module.css"
 import Post from "./Post/Post";
 import SearchBar from "./SearchBar/SearchBar";
 import {setPosts} from "../../redux/app-reducer";

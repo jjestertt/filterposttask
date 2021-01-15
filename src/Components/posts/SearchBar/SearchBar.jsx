@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
                     <form onSubmit={(e) => {e.preventDefault();}} action="" className={style.form}>
                         <input style={{backgroundImage: `url(${bgSearch})`}}
                                onInput={this.changeText} value={this.currentInputValue}
-                               type="text" className={style.inputSearch} placeholder="Filter by author"
+                               type="text" className={style.inputSearch} placeholder="Filter by author..."
                         />
                     </form>
                 </div>
