@@ -1,12 +1,16 @@
-.searchBar{
+.searchBar {
     padding: 20px 0;
     border-bottom: 1px solid #EFEFEF;
-    background: #edf2f7; }
-.form{
+    background: #edf2f7;
+}
+
+.form {
     display: block;
-    margin: 0 auto ;
+    margin: 0 auto;
     max-width: 300px;
-    width: 100%; }
+    width: 100%;
+}
+
 .inputSearch {
     outline: none;
     padding: 0 15px 0 50px;
@@ -15,4 +19,5 @@
     border: 1px solid #ccc;
     border-radius: 3px;
     background-repeat: no-repeat;
-    background-position: 15px 50%; }
+    background-position: 15px 50%;
+}

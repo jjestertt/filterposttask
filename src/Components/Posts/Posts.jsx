@@ -11,18 +11,18 @@ class Posts extends React.Component {
     }
 
     filterUsers = (inputValue) => {
-        let filteredPost  = [];
-        if(inputValue !== ""){
+        let filteredPost = [];
+        if (inputValue !== "") {
             let filteredUsers = this.props.users
                 .filter(user => user.name.toLowerCase().includes(inputValue.toLowerCase()));
             filteredUsers.forEach(user => {
                 this.props.posts.forEach((post) => {
-                    if(post.userId === user.id){
+                    if (post.userId === user.id) {
                         filteredPost.push(post);
                     }
                 });
             });
-        }else if (inputValue === "") {
+        } else if (inputValue === "") {
             filteredPost = this.props.posts;
         }
         this.setState({postList: [...filteredPost]});
