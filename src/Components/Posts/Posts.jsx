@@ -8,34 +8,21 @@ import {setPosts} from "../../redux/app-reducer";
 class Posts extends React.Component {
     state = {
         postList: this.props.posts
-    };
-
-    // filterUsers = (inputValue) => {
-    //     let filteredUsers = [];
-    //     this.props.users.forEach(user =>{
-    //        if (!user.name.toLowerCase().search(inputValue.toLowerCase())) {
-    //            this.props.posts.forEach(post => {
-    //                if(post.userId === user.id){
-    //                    filteredUsers.push(post);
-    //                }
-    //            })
-    //        }
-    //     });
-    //     this.setState({postList: [...filteredUsers]});
-    // }
+    }
 
     filterUsers = (inputValue) => {
         let filteredPost  = [];
-        if(inputValue !== ''){
-            let filteredUsers = this.props.users.filter(user => user.name.toLowerCase().includes(inputValue.toLowerCase()));
+        if(inputValue !== ""){
+            let filteredUsers = this.props.users
+                .filter(user => user.name.toLowerCase().includes(inputValue.toLowerCase()));
             filteredUsers.forEach(user => {
                 this.props.posts.forEach((post) => {
                     if(post.userId === user.id){
                         filteredPost.push(post);
                     }
-                })
+                });
             });
-        }else if (inputValue === '') {
+        }else if (inputValue === "") {
             filteredPost = this.props.posts;
         }
         this.setState({postList: [...filteredPost]});

@@ -1,7 +1,7 @@
-import './App.css';
+import "./App.css";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
-import Posts from "./Components/posts/Posts";
+import Posts from "./Components/Posts/Posts";
 
 const App = (props) => {
 

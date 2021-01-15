@@ -1,14 +1,13 @@
 import axios from "axios";
 
 const url = "https://jsonplaceholder.typicode.com/";
+let request = (parameter) =>{
+    return axios.get(url + parameter).then(response => response);
+}
 
 const getapi = {
-    getPosts: () =>{
-        return axios.get(url + "posts/").then(response => response);
-    },
-    getUsers: () =>{
-        return axios.get(url + "users/").then(response => response);
-    }
+    getPosts: () => request("posts/"),
+    getUsers: () => request("users/"),
 }
 
 export default getapi;

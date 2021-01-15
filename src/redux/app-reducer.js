@@ -1,8 +1,8 @@
 import getApi from "../api/getapi";
 
-const INITIALIZED_SUCCESS = 'posts/app/INITIALIZED_SUCCESS'
-const SET_POSTS = 'posts/app/SET_POSTS'
-const SET_USERS = 'posts/app/SET_USERS'
+const INITIALIZED_SUCCESS = 'Posts/app/INITIALIZED_SUCCESS'
+const SET_POSTS = 'Posts/app/SET_POSTS'
+const SET_USERS = 'Posts/app/SET_USERS'
 
 let initialState = {
     initialized: false,

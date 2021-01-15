@@ -4,7 +4,7 @@ import bgSearch from "./../../../assets/img/search.svg"
 
 class SearchBar extends React.Component {
     state = {
-        currentInputValue: '',
+        currentInputValue: "",
     };
 
     changeText = (e) =>{
@@ -28,4 +28,4 @@ class SearchBar extends React.Component {
     }
 }
 
-export default SearchBar
+export default SearchBar;
