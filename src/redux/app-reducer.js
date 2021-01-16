@@ -1,8 +1,8 @@
 import getApi from "../api/getapi";
 
-const INITIALIZED_SUCCESS = 'Posts/app/INITIALIZED_SUCCESS'
-const SET_POSTS = 'Posts/app/SET_POSTS'
-const SET_USERS = 'Posts/app/SET_USERS'
+const INITIALIZED_SUCCESS = "Posts/app/INITIALIZED_SUCCESS"
+const SET_POSTS = "Posts/app/SET_POSTS"
+const SET_USERS = "Posts/app/SET_USERS"
 
 let initialState = {
     initialized: false,
@@ -49,9 +49,9 @@ const setUsers = (users) => {
 
 export const initializeApp = () => async (dispatch) => {
     let responsePosts = await getApi.getPosts();
-    await dispatch(setPosts(responsePosts.data));
+    dispatch(setPosts(responsePosts.data));
     let responseUsers = await getApi.getUsers();
-    await dispatch(setUsers(responseUsers.data));
+    dispatch(setUsers(responseUsers.data));
     Promise.all([responsePosts, responseUsers]).then(dispatch(initializedSuccess()));
 }
 
