@@ -15,16 +15,25 @@ class SearchBar extends React.Component {
     render() {
         return (
             <section className={style.searchBar}>
-                <div className="container">
-                    <form onSubmit={(e) => {
-                        e.preventDefault();
-                    }} action="" className={style.form}>
-                        <input style={{backgroundImage: `url(${bgSearch})`}}
-                               onInput={this.changeText} value={this.currentInputValue}
-                               type="text" className={style.inputSearch} placeholder="Filter by author..."
-                        />
-                    </form>
-                </div>
+                <nav className="navbar navbar-light bg-light d-block">
+                    <div className="container d-block d-lg-flex justify-content-center">
+                        <form className="d-flex row col-lg-4"
+                              onSubmit={(e) => {
+                                  e.preventDefault();
+                              }}
+                        >
+                            <div className="input-group ">
+                                <span className="input-group-text bg-body" id="basic-addon1">
+                                    <img src={bgSearch} alt=""/>
+                                </span>
+                                <input type="search" className="form-control"
+                                       onInput={this.changeText} value={this.currentInputValue}
+                                       placeholder="Filter by author..." aria-label="search"
+                                       aria-describedby="basic-addon1"/>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
             </section>
         )
     }

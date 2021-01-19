@@ -1,63 +1,48 @@
 import React from "react"
 import {connect} from "react-redux";
-import style from "./Posts.module.css"
 import Post from "./Post/Post";
 import SearchBar from "./SearchBar/SearchBar";
-import {setPosts} from "../../redux/app-reducer";
 
 class Posts extends React.Component {
     state = {
-        postList: this.props.posts
+        posts: this.props.posts
     }
 
     filterUsers = (inputValue) => {
-        let filteredPost = [];
         if (inputValue !== "") {
-            let filteredUsers = this.props.users
-                .filter(user => user.name.toLowerCase().includes(inputValue.toLowerCase()));
-            filteredUsers.forEach(user => {
-                this.props.posts.forEach((post) => {
-                    if (post.userId === user.id) {
-                        filteredPost.push(post);
-                    }
-                });
-            });
-        } else if (inputValue === "") {
-            filteredPost = this.props.posts;
+            let filteredPost = this.props.posts
+                .filter(post => post.name.toLowerCase().includes(inputValue.toLowerCase()));
+            this.setState({posts: [...filteredPost]});
+        } else {
+            this.setState({posts: [...this.props.posts]});
         }
-        this.setState({postList: [...filteredPost]});
     }
 
-
     render() {
-        let postList = [];
-        this.state.postList.forEach(post => {
-            this.props.users.forEach(user => {
-                if (user.id === post.userId) {
-                    postList.push(<Post key={post.id} title={post.title} text={post.body} userName={user.name}/>);
-                }
-            });
-        });
+        //Get array posts from local state and convert this to JSX
+        let posts = this.state.posts
+            .map(post => <Post key={post.id} title={post.title} text={post.body} userName={post.name}/>);
+
         return (
-            <>
+            <div className="bg-light min-vh-100">
                 <SearchBar filterUsers={this.filterUsers}/>
-                <section className={style.posts}>
+                <div className="container">
                     <div className="container">
-                        <ul className={style.postsList}>
-                            {postList}
-                        </ul>
+                        <div className="card-columns">
+                            {posts}
+                        </div>
                     </div>
-                </section>
-            </>
+                </div>
+            </div>
+
         );
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        users: state.app.users,
         posts: state.app.posts,
     }
 }
 
-export default connect(mapStateToProps, {setPosts})(Posts);
+export default connect(mapStateToProps, {})(Posts);

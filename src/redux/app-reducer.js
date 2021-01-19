@@ -1,13 +1,11 @@
 import getApi from "../api/getapi";
 
 const INITIALIZED_SUCCESS = "Posts/app/INITIALIZED_SUCCESS"
-const SET_POSTS = "Posts/app/SET_POSTS"
-const SET_USERS = "Posts/app/SET_USERS"
+const SET_DATA = "Posts/app/SET_DATA"
 
 let initialState = {
     initialized: false,
-    users: null,
-    posts: null,
+    posts: null
 }
 
 const appReducer = (state = initialState, action) => {
@@ -18,11 +16,13 @@ const appReducer = (state = initialState, action) => {
                 initialized: true
             }
         }
-        case SET_POSTS:{
-            return {...state, posts: [...action.posts]}
-        }
-        case SET_USERS:{
-            return {...state, users: [...action.users]}
+        case SET_DATA:{
+            let posts= action.posts.map(post => {
+               let user = action.users.find(user => post.userId === user.id);
+               return {...post, name: user.username}
+            });
+
+            return {...state, posts: [...posts]}
         }
         default: {
             return state;
@@ -35,23 +35,18 @@ const initializedSuccess = () => {
         type: INITIALIZED_SUCCESS,
     }
 }
-export const setPosts = (posts) => {
+const setData = (posts, users) => {
     return{
-        type: SET_POSTS, posts
-    }
-}
-const setUsers = (users) => {
-    return{
-        type: SET_USERS, users
+        type: SET_DATA,
+        posts, users
     }
 }
 
 
 export const initializeApp = () => async (dispatch) => {
     let responsePosts = await getApi.getPosts();
-    dispatch(setPosts(responsePosts.data));
     let responseUsers = await getApi.getUsers();
-    dispatch(setUsers(responseUsers.data));
+    dispatch(setData(responsePosts.data, responseUsers.data));
     Promise.all([responsePosts, responseUsers]).then(dispatch(initializedSuccess()));
 }
 
