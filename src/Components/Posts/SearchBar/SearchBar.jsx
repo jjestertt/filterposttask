@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
                                   e.preventDefault();
                               }}
                         >
-                            <div className="input-group ">
+                            <div className="input-group">
                                 <span className="input-group-text bg-body" id="basic-addon1">
                                     <img src={bgSearch} alt=""/>
                                 </span>

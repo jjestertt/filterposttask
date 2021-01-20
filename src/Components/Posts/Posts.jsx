@@ -1,5 +1,6 @@
 import React from "react"
 import {connect} from "react-redux";
+import "./cardColumns.css"
 import Post from "./Post/Post";
 import SearchBar from "./SearchBar/SearchBar";
 
@@ -34,7 +35,6 @@ class Posts extends React.Component {
                     </div>
                 </div>
             </div>
-
         );
     }
 }

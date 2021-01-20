@@ -1,0 +1,13 @@
+.card-columns{
+    column-count: 3;
+}
+@media (max-width: 991px) {
+    .card-columns{
+        column-count: 2;
+    }
+}
+@media (max-width: 767px) {
+    .card-columns{
+        column-count: 1;
+    }
+}
