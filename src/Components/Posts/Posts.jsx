@@ -26,7 +26,7 @@ class Posts extends React.Component {
         return (
             <div className="bg-light min-vh-100">
                 <SearchBar filterUsers={this.filterUsers}/>
-                <div className="container">
+                <div className="container-sm">
                     <div className="container">
                         <div className="card-columns">
                             {posts}

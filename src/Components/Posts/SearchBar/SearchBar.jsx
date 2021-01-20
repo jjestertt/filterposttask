@@ -16,8 +16,8 @@ class SearchBar extends React.Component {
         return (
             <section className={style.searchBar}>
                 <nav className="navbar navbar-light bg-light d-block">
-                    <div className="container d-block d-lg-flex justify-content-center">
-                        <form className="d-flex row col-lg-4"
+                    <div className="container-sm d-block d-lg-flex justify-content-center">
+                        <form className={"d-flex col-lg-4 " + style.form}
                               onSubmit={(e) => {
                                   e.preventDefault();
                               }}
